@@ -1,0 +1,65 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:paddingBottom="@dimen/activity_vertical_margin"
+    android:paddingLeft="@dimen/activity_horizontal_margin"
+    android:paddingRight="@dimen/activity_horizontal_margin"
+    android:paddingTop="@dimen/activity_vertical_margin"
+    tools:context="cattranslate.oxzu.yili.com.cattranslate.MainActivity"
+    android:orientation="vertical"
+    tools:showIn="@layout/activity_main"
+    android:weightSum="0">
+
+    <MaterialEditText
+        android:layout_width="match_parent"
+        android:layout_height="40dp"
+        android:hint="请输入翻译内容"
+        android:id="@+id/et_input"
+        android:layout_weight="0.07"
+        app:floatingLabel="true" />
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:orientation="horizontal"
+        android:weightSum="1">
+        <Spinner
+            android:id="@+id/spinner_from"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:entries="@array/from"></Spinner>
+
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="翻译至"
+            android:layout_weight="0.41" />
+
+        <Spinner
+            android:id="@+id/spinner_to"
+            android:layout_width="109dp"
+            android:layout_height="wrap_content"
+            android:entries="@array/to"
+            android:layout_weight="0.19"></Spinner>
+
+    </LinearLayout>
+
+
+    <MaterialEditText
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:hint="翻译结果"
+        android:id="@+id/et_result"
+        android:layout_weight="0.08"
+        app:floatingLabel="true"/>
+
+    <Button
+        android:id="@+id/btnAlert"
+        android:text="关于"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content" />
+
+</LinearLayout>
