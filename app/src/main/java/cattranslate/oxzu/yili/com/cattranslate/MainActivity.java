@@ -3,10 +3,12 @@ package cattranslate.oxzu.yili.com.cattranslate;
 import android.app.Activity;
 import android.content.ClipboardManager;
 import android.content.Context;
+import android.content.Intent;
 import android.graphics.Color;
 import android.os.Bundle;
 import android.support.design.widget.Snackbar;
 import android.support.v7.app.AlertDialog;
+import android.support.v7.widget.CardView;
 import android.view.Menu;
 import android.view.MenuItem;
 import android.view.View;
@@ -15,8 +17,11 @@ import android.widget.Button;
 import android.widget.EditText;
 import android.widget.Spinner;
 
+import static cattranslate.oxzu.yili.com.cattranslate.R.id.btn_google;
 import static cattranslate.oxzu.yili.com.cattranslate.R.id.btn_translate;
 import static cattranslate.oxzu.yili.com.cattranslate.R.id.et_result;
+
+//import static cattranslate.oxzu.yili.com.cattranslate.R.id.btn_Boom;
 
 
 public class MainActivity extends Activity {
@@ -29,12 +34,13 @@ public class MainActivity extends Activity {
     private String from = "auto";
     private String to = "auto";
     private ClipboardManager clip;
-
-    Button btnAlert;
+    private Button btnAlert;
+    private Button btnBoom;
+    private Button btnGoogle;
+    private CardView cardView;
 
     String[] language = {"auto", "zh", "en", "yue", "wyw", "jp", "kor", "fra", "spa", "th", "ara", "ru", "pt", "de", "it", "el", "nl", "pl", "bul", "est", "dan", "fin", "cs", "rom"
             , "slo", "swe", "hu", "cht"};
-
 
     @Override
     public boolean onCreateOptionsMenu(Menu menu) {
@@ -50,11 +56,6 @@ public class MainActivity extends Activity {
         // as you specify a parent activity in AndroidManifest.xml.
         int id = item.getItemId();
 
-        //noinspection SimplifiableIfStatement
-        if (id == R.id.action_settings) {
-            return true;
-        }
-
         return super.onOptionsItemSelected(item);
     }
 
@@ -64,24 +65,35 @@ public class MainActivity extends Activity {
         setContentView(R.layout.activity_main);
 
         btnAlert = (Button) findViewById(R.id.btnAlert);
+        btnGoogle = (Button) findViewById(btn_google);
+        //btnBoom = (Button) findViewById(btn_Boom);
 
         btnAlert.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
                 new AlertDialog.Builder(MainActivity.this)
-                        .setTitle("关于   Cat Translate")
-                        .setMessage("Cat 翻译\n" +
+                        .setTitle("关于   Jelly翻译")
+                        .setMessage("果冻翻译\n" +
                                 "作者：yili\n" +
-                                "版本号：2.1\n" +
-                                "编译日期：2016.9.22 19:36\n" +
+                                "版本号：4.2\n" +
+                                "编译日期：2016 11.27 22;00\n" +
                                 "联系方式(QQ)：2510355993\n" +
-                                "大部分功能已完善\n" +
-                                "可能存在少许BUG\n" +
-                                "请谅解！\n" +
-                                "也谢谢某个傻瓜让我联想到了这个APP的名字。(～￣▽￣)～\n" +
+                                "更新日志:\n" +
+                                "修复一个很奇葩的Bug\n" +
                                 "*采用了百度翻译API接口*\n")
                         .setNegativeButton("取消", null)
                         .setPositiveButton("确定", null).create().show();
+            }
+        });
+
+
+        btnGoogle.setOnClickListener(new View.OnClickListener() {
+            @Override
+                public void onClick (View v) {
+                    Intent intent = new Intent();
+                    intent.setClass(MainActivity.this,Gwv.class);
+                    startActivity(intent);
+
             }
         });
 
@@ -93,6 +105,7 @@ public class MainActivity extends Activity {
 
         btnTranslate.setOnClickListener(new View.OnClickListener() {
             @Override
+
             public void onClick(View v) {
                 final String request = etInput.getText().toString();
                 RequestUtils requestUtils = new RequestUtils();
@@ -154,8 +167,6 @@ public class MainActivity extends Activity {
             }
         });
 
-
     }
-
 
 }

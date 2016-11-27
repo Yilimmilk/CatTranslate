@@ -12,13 +12,6 @@
         android:layout_height="wrap_content"
         android:theme="@style/AppTheme.AppBarOverlay">
 
-        <android.support.v7.widget.Toolbar
-            android:id="@+id/toolbar"
-            android:layout_width="match_parent"
-            android:layout_height="?attr/actionBarSize"
-            android:background="?attr/colorPrimary"
-            app:popupTheme="@style/AppTheme.PopupOverlay" />
-
     </android.support.design.widget.AppBarLayout>
 
     <android.support.design.widget.FloatingActionButton
@@ -26,6 +19,7 @@
         android:layout_width="60dp"
         android:layout_height="match_parent"
         android:layout_margin="@dimen/fab_margin"
+        app:rippleColor="#54a1b4"
         app:srcCompat="@drawable/pic1"
         app:layout_anchorGravity="top|center_horizontal"
         android:layout_gravity="bottom|right" />

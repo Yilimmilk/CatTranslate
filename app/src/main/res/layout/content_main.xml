@@ -4,22 +4,47 @@
     xmlns:app="http://schemas.android.com/apk/res-auto"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    android:paddingBottom="@dimen/activity_vertical_margin"
+    android:paddingBottom="30dp"
     android:paddingLeft="@dimen/activity_horizontal_margin"
     android:paddingRight="@dimen/activity_horizontal_margin"
-    android:paddingTop="@dimen/activity_vertical_margin"
+    android:paddingTop="20dp"
     tools:context="cattranslate.oxzu.yili.com.cattranslate.MainActivity"
     android:orientation="vertical"
     tools:showIn="@layout/activity_main"
     android:weightSum="0">
 
-    <MaterialEditText
+    <TextView
         android:layout_width="match_parent"
-        android:layout_height="40dp"
-        android:hint="请输入翻译内容"
-        android:id="@+id/et_input"
-        android:layout_weight="0.07"
-        app:floatingLabel="true" />
+        android:layout_height="30dp"
+        android:textColor="#0b8fe7"
+        android:textSize="11pt"
+        android:text="果冻翻译       Jelly Translation" />
+
+    <TextView
+        android:layout_width="match_parent"
+        android:layout_height="15dp"
+        android:textColor="#00ffffff"
+        android:textSize="9pt"
+        android:text=" " />
+
+    <android.support.v7.widget.CardView
+        xmlns:card_view="http://schemas.android.com/apk/res-auto"
+        android:layout_width="match_parent"
+        android:layout_height="185dp"
+        card_view:cardBackgroundColor="#6d549ab4"
+        android:focusable="true"
+        android:clickable="true"
+        android:foreground="?android:attr/selectableItemBackground">
+
+        <MaterialEditText
+            android:layout_width="match_parent"
+            android:layout_height="185dp"
+            android:hint="请输入翻译内容"
+            android:id="@+id/et_input"
+            android:layout_weight="0.07"
+            app:floatingLabel="true" />
+
+    </android.support.v7.widget.CardView>
 
     <LinearLayout
         android:layout_width="match_parent"
@@ -32,11 +57,14 @@
             android:layout_height="wrap_content"
             android:entries="@array/from"></Spinner>
 
-        <TextView
+        <Button
+            android:id="@+id/btnAlert"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:text="翻译至"
-            android:layout_weight="0.41" />
+            android:layout_weight="0.41"
+            android:elevation="0dp"
+            android:background="@android:color/transparent"/>
 
         <Spinner
             android:id="@+id/spinner_to"
@@ -47,18 +75,34 @@
 
     </LinearLayout>
 
-
-    <EditText
+    <android.support.v7.widget.CardView
+        xmlns:card_view="http://schemas.android.com/apk/res-auto"
         android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:hint="翻译结果"
-        android:id="@+id/et_result"
-        android:layout_weight="0.08" />
+        android:layout_height="190dp"
+        card_view:cardBackgroundColor="#6d549ab4">
+
+        <MaterialEditText
+            android:layout_width="match_parent"
+            android:layout_height="190dp"
+            android:hint="翻译结果"
+            android:id="@+id/et_result"
+            android:layout_weight="0.08"
+            android:focusable="false"
+            app:floatingLabel="true" />
+
+    </android.support.v7.widget.CardView>
 
     <Button
-        android:id="@+id/btnAlert"
+        android:id="@+id/btn_google"
+        android:text="Google翻译"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content" />
+
+    <!--<Button
+        android:id="@+id/btn_Boom"
         android:text="关于"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content" />
+        -->
 
 </LinearLayout>
