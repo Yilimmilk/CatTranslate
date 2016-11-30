@@ -20,6 +20,10 @@
             android:name="cattranslate.oxzu.yili.com.cattranslate.Gwv"
             android:label="GwvActivity">
         </activity>
+        <activity
+            android:name="cattranslate.oxzu.yili.com.cattranslate.youdao_trans"
+            android:label="youdao_transActivity">
+        </activity>
 
 </application>
 

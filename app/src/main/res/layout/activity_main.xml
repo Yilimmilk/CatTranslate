@@ -5,6 +5,7 @@
     android:layout_width="match_parent"
     android:layout_height="match_parent"
     android:background="@drawable/pic2"
+    android:fitsSystemWindows="true"
     tools:context="cattranslate.oxzu.yili.com.cattranslate.MainActivity">
 
     <android.support.design.widget.AppBarLayout

@@ -98,6 +98,12 @@
         android:layout_width="wrap_content"
         android:layout_height="wrap_content" />
 
+    <Button
+        android:id="@+id/btn_youdao"
+        android:text="有道翻译"
+        android:layout_width="96dp"
+        android:layout_height="wrap_content" />
+
     <!--<Button
         android:id="@+id/btn_Boom"
         android:text="关于"

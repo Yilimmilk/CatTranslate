@@ -12,6 +12,8 @@ import android.support.v7.widget.CardView;
 import android.view.Menu;
 import android.view.MenuItem;
 import android.view.View;
+import android.view.Window;
+import android.view.WindowManager;
 import android.widget.AdapterView;
 import android.widget.Button;
 import android.widget.EditText;
@@ -19,6 +21,7 @@ import android.widget.Spinner;
 
 import static cattranslate.oxzu.yili.com.cattranslate.R.id.btn_google;
 import static cattranslate.oxzu.yili.com.cattranslate.R.id.btn_translate;
+import static cattranslate.oxzu.yili.com.cattranslate.R.id.btn_youdao;
 import static cattranslate.oxzu.yili.com.cattranslate.R.id.et_result;
 
 //import static cattranslate.oxzu.yili.com.cattranslate.R.id.btn_Boom;
@@ -35,8 +38,8 @@ public class MainActivity extends Activity {
     private String to = "auto";
     private ClipboardManager clip;
     private Button btnAlert;
-    private Button btnBoom;
     private Button btnGoogle;
+    private Button btnYoudao;
     private CardView cardView;
 
     String[] language = {"auto", "zh", "en", "yue", "wyw", "jp", "kor", "fra", "spa", "th", "ara", "ru", "pt", "de", "it", "el", "nl", "pl", "bul", "est", "dan", "fin", "cs", "rom"
@@ -66,6 +69,7 @@ public class MainActivity extends Activity {
 
         btnAlert = (Button) findViewById(R.id.btnAlert);
         btnGoogle = (Button) findViewById(btn_google);
+        btnYoudao = (Button) findViewById(btn_youdao);
         //btnBoom = (Button) findViewById(btn_Boom);
 
         btnAlert.setOnClickListener(new View.OnClickListener() {
@@ -75,11 +79,13 @@ public class MainActivity extends Activity {
                         .setTitle("关于   Jelly翻译")
                         .setMessage("果冻翻译\n" +
                                 "作者：yili\n" +
-                                "版本号：4.2\n" +
-                                "编译日期：2016 11.27 22;00\n" +
+                                "版本号：4.3(Beta)\n" +
+                                "编译日期：2016 11.28 23;10\n" +
                                 "联系方式(QQ)：2510355993\n" +
                                 "更新日志:\n" +
-                                "修复一个很奇葩的Bug\n" +
+                                "修改状态栏和虚拟导航栏着色\n" +
+                                "添加有道翻译API支持\n" +
+                                "此版本为BETA测试版！" +
                                 "*采用了百度翻译API接口*\n")
                         .setNegativeButton("取消", null)
                         .setPositiveButton("确定", null).create().show();
@@ -93,6 +99,16 @@ public class MainActivity extends Activity {
                     Intent intent = new Intent();
                     intent.setClass(MainActivity.this,Gwv.class);
                     startActivity(intent);
+
+            }
+        });
+
+        btnYoudao.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick (View v) {
+                Intent intent = new Intent();
+                intent.setClass(MainActivity.this,youdao_trans.class);
+                startActivity(intent);
 
             }
         });
@@ -143,6 +159,16 @@ public class MainActivity extends Activity {
                 }
             }
         });
+
+        Window window = getWindow();
+        // 状态栏透明
+        window.setFlags(
+                WindowManager.LayoutParams.FLAG_TRANSLUCENT_STATUS,
+                WindowManager.LayoutParams.FLAG_TRANSLUCENT_STATUS);
+        // 虚拟导航栏透明
+        window.setFlags(
+                WindowManager.LayoutParams.FLAG_TRANSLUCENT_NAVIGATION,
+                WindowManager.LayoutParams.FLAG_TRANSLUCENT_NAVIGATION);
 
         spinnerFrom.setOnItemSelectedListener(new AdapterView.OnItemSelectedListener() {
             @Override
